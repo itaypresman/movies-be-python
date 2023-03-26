@@ -14,5 +14,5 @@ def search():
 @oimdb_controller.route('/filmInfo', methods=['GET'])
 def film_info():
     film_id = request.args.get('id')
-    results = {'method': 'filmInfo', 'filmId': film_id}
-    return jsonify(results)
+    film = OimDb.get_film(film_id)
+    return jsonify(film)

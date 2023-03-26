@@ -10,6 +10,6 @@ class Axios:
 
         url = Config.OIMDB_URL + path
         data = {'apikey': Config.OIMDB_TOKEN, 'plot': 'full'}
-        response = requests.get(url, params={**data, **params}).json()
+        response = requests.get(url, params={**data, **params})
 
-        return response['Search'] if response['Response'] != 'False' else []
+        return response.json()
